@@ -52,6 +52,9 @@ export interface LabelColumnRowProps extends ChartRow {
 // -----------------------------
 const emit = defineEmits<{
   (e: "scroll", value: number): void
+  (e: "row-drag-start-helper", value: RowDragEvent): void
+  (e: "row-drag-start", value: RowDragEvent): void
+  (e: "row-drag", value: RowDragEvent): void
   (e: "row-drop", value: RowDragEvent): void
 }>()
 
