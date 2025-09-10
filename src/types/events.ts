@@ -21,6 +21,21 @@ export interface GanttBarDragEvent extends GanttBarEvent {
 
 export type BarMouseEvent = Omit<GanttBarEvent, "datetime">
 
+export interface RowDragHelperEvent {
+  sourceRow: ChartRow
+  parentRow: ChartRow | null
+}
+
+export interface RowDragStartEvent {
+  sourceRow: ChartRow
+  parentRow: ChartRow | null
+}
+
+export interface RowDraggingEvent {
+  sourceRow: ChartRow
+  parentRow: ChartRow | null
+}
+
 export interface RowDragEvent {
   sourceRow: ChartRow
   targetRow?: ChartRow
@@ -91,6 +106,9 @@ export interface GGanttChartEmits {
   (e: "contextmenu-bar", value: GanttBarEvent): void
   (e: "sort", value: SortEvent): void
   (e: "group-expansion", value: { rowId: string | number }): void
+  (e: "row-drag-start-helper", value: RowDragHelperEvent): void
+  (e: "row-drag-start", value: RowDragStartEvent): void
+  (e: "row-drag", value: RowDraggingEvent): void
   (e: "row-drop", value: RowDragEvent): void
   (e: "progress-change", value: BarMouseEvent): void
   (e: "progress-drag-start", value: BarMouseEvent): void
